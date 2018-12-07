@@ -71,17 +71,33 @@ $(document).ready(function() {
 
     function questionEnd() {
         if (correct + incorrect + missed === questions.length) {
+            //Display game-end screen and offer the option to replay
             $("#question").hide();
             $(".answer-button").hide();
             $("#timer-display").hide();
-            $("#game").append("<h3>Correct: " + correct);
-            $("#game").append("<h3>Incorrect: " + incorrect);
-            $("#game").append("<h3>Unanswered: " + missed);
+            $("#results").show();
+            $("#results").append("<h3>Correct: " + correct);
+            $("#results").append("<h3>Incorrect: " + incorrect);
+            $("#results").append("<h3>Unanswered: " + missed);
+            var resetButton = $("<button>");
+            resetButton.html("Play Again");
+            $("#results").append(resetButton);
+
+            $(resetButton).on("click", function () {
+                $("#results").empty();
+                $("#results").hide();
+                index = 0;
+                correct = 0;
+                incorrect = 0;
+                missed = 0;
+                displayQuestion();
+                $("#timer-display").show();
+            });
         }
         else {
             index++;
             displayQuestion();
-        }
+        };
     };
 
     $(".answer-button").on("click", function () {
@@ -89,7 +105,6 @@ $(document).ready(function() {
         timer.stop();
         console.log(userGuess);
         if (userGuess === questions[index].answer) {
-            console.log("true");
             correct++;
             $(".answer-button").hide();
             $("#question").html("Correct!<br />The answer was " + questions[index].answer + ".<br /><br /><img src='" + questions[index].gif + "'>");

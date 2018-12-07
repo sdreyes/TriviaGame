@@ -2,72 +2,107 @@ $(document).ready(function() {
 
     var intervalId;
     var timer = {
-        time: 30,
+        time: 20,
         reset: function() {
-            timer.time = 5;
+            timer.time = 20;
         },
         start: function () {
             intervalId = setInterval(timer.count, 1000);
+            $("#timer-display").html("Time remaining: " + timer.time);
         },
         stop: function () {
             clearInterval(intervalId);
         },
         count: function() {
             if (timer.time > 0) {
-                $("#timer-display").html("Time remaining: " + timer.time);
                 timer.time--;
+                $("#timer-display").html("Time remaining: " + timer.time);
             }
             else {
-                $("#timer-display").html("Time's up");
                 timer.stop();
+                missed++;
+                $(".answer-button").hide();
+                $("#question").html("Time's up! The correct answer was " + questions[index].answer + ".<br /><br /><img src='" + questions[index].gif + "'>");
+                var next = setTimeout(questionEnd, 5000);
             };
         }
     };
 
     var correct = 0;
     var incorrect = 0;
-    var index = 1;
+    var missed = 0;
+    var index = 0;
     var questions = [
         {
-            q: "What is 1+1?",
-            a1: "2",
-            a2: "3",
-            a3: "4",
-            a4: "1,928,476",
-            answer: "a1"
+            q: "In Breath of the Wild, which amphibian does Princess Zelda ask Link to eat?",
+            a1: "Tireless Frog",
+            a2: "Hot-Footed Frog",
+            a3: "Eyeball Frog",
+            a4: "Deku Toad",
+            answer: "Hot-Footed Frog",
+            gif: "assets/images/1.gif"
         },
         {
-            q: "What is yellow?",
-            a1: "A plant",
-            a2: "A body part",
-            a3: "A color",
-            a4: "Blue",
-            answer: "a3"
+            q: "In Majora's Mask, which mask do you wear to inspire the Rosa Sisters to dance?",
+            a1: "Kamaro's Mask",
+            a2: "Bremen Mask",
+            a3: "Keaton Mask",
+            a4: "Don Gero's Mask",
+            answer: "Kamaro's Mask",
+            gif: "assets/images/2.gif"
         }
     ];
 
     function displayQuestion() {
+        timer.reset();
+        timer.start();
+        $("#question").show();
+        $(".answer-button").show();
         $("#question").text(questions[index].q);
         $("#a1").text(questions[index].a1);
-        $("#a1").attr("id", "a1");
+        $("#a1").attr("data-text", questions[index].a1);
         $("#a2").text(questions[index].a2);
-        $("#a2").attr("id", "a2");
+        $("#a2").attr("data-text", questions[index].a2);
         $("#a3").text(questions[index].a3);
-        $("#a3").attr("id", "a3");
+        $("#a3").attr("data-text", questions[index].a3);
         $("#a4").text(questions[index].a4);
-        $("#a4").attr("id", "a4");
+        $("#a4").attr("data-text", questions[index].a4);
+    };
+
+    function questionEnd() {
+        if (correct + incorrect + missed === questions.length) {
+            $("#question").hide();
+            $(".answer-button").hide();
+            $("#timer-display").hide();
+            $("#game").append("<h3>Correct: " + correct);
+            $("#game").append("<h3>Incorrect: " + incorrect);
+            $("#game").append("<h3>Unanswered: " + missed);
+        }
+        else {
+            index++;
+            displayQuestion();
+        }
     };
 
     $(".answer-button").on("click", function () {
-        var userGuess = ($(this).attr("id"));
+        var userGuess = ($(this).attr("data-text"));
         timer.stop();
         console.log(userGuess);
         if (userGuess === questions[index].answer) {
             console.log("true");
+            correct++;
+            $(".answer-button").hide();
+            $("#question").html("Correct!<br />The answer was " + questions[index].answer + ".<br /><br /><img src='" + questions[index].gif + "'>");
+            var next = setTimeout(questionEnd, 5000);
+        }
+        else {
+            incorrect++;
+            $(".answer-button").hide();
+            $("#question").html("Incorrect!<br />The correct answer was " + questions[index].answer + ".<br /><br /><img src='" + questions[index].gif + "'>");
+            var next = setTimeout(questionEnd, 5000);
         }
     })
 
-    timer.start();
     displayQuestion();
 
 });

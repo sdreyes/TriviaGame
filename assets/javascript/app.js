@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     var intervalId;
     var timer = {
-        time: 5,
+        time: 30,
         reset: function() {
             timer.time = 5;
         },
@@ -26,9 +26,10 @@ $(document).ready(function() {
 
     var correct = 0;
     var incorrect = 0;
+    var index = 0;
     var questions = [
         {
-            q1: "What is 1+1?",
+            q: "What is 1+1?",
             a1: "2",
             a2: "3",
             a3: "4",
@@ -36,7 +37,7 @@ $(document).ready(function() {
             answer: a1
         },
         {
-            q2: "What is yellow?",
+            q: "What is yellow?",
             a1: "A plant",
             a2: "A body part",
             a3: "A color",
@@ -45,7 +46,16 @@ $(document).ready(function() {
         }
     ];
 
+    function displayQuestion() {
+        $("#question").text(questions[index].q);
+        $("#a1").text(questions[index].a1);
+        $("#a2").text(questions[index].a2);
+        $("#a3").text(questions[index].a3);
+        $("#a4").text(questions[index].a4);
+    };
+
     timer.start();
+    displayQuestion();
 
 });
 

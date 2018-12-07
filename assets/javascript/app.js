@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     var intervalId;
     var timer = {
         time: 5,
@@ -19,10 +20,30 @@ $(document).ready(function() {
             else {
                 $("#timer-display").html("Time's up");
                 timer.stop();
-                console.log(this);
             };
         }
     };
+
+    var correct = 0;
+    var incorrect = 0;
+    var questions = [
+        {
+            q1: "What is 1+1?",
+            a1: "2",
+            a2: "3",
+            a3: "4",
+            a4: "1,928,476",
+            answer: a1
+        },
+        {
+            q2: "What is yellow?",
+            a1: "A plant",
+            a2: "A body part",
+            a3: "A color",
+            a4: "Blue",
+            answer: a3
+        }
+    ];
 
     timer.start();
 

@@ -1,4 +1,19 @@
-body {
+html, body {
     background-image: url("../images/gaming-pattern.png");
     background-repeat: repeat;
+    height: 100%;
+}
+
+.container-table {
+    display: table;
+    height: 100%;
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.col {
+    height: 75%;
 }

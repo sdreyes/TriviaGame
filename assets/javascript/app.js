@@ -54,6 +54,14 @@ $(document).ready(function() {
         $("#a4").text(questions[index].a4);
     };
 
+    $(".answer-button").on("click", function () {
+        var userGuess = this.text;
+        timer.stop();
+        if (userGuess === questions.answer) {
+            
+        })
+    })
+
     timer.start();
     displayQuestion();
 

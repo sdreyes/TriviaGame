@@ -1,7 +1,16 @@
 html, body {
-    background-image: url("../images/gaming-pattern.png");
+    background-image: url("../images/zelda-bg.jpg");
     background-repeat: repeat;
     height: 100%;
+}
+
+h1 {
+    width: 100%;
+}
+
+button {
+    width: 50%;
+    height: 3em;
 }
 
 .container-table {
@@ -12,12 +21,9 @@ html, body {
 .vertical-center-row {
     display: table-cell;
     vertical-align: middle;
+    width: 100%;
 }
 
 .col {
     height: 90%;
-}
-
-.answer-button {
-    width: 75%;
 }

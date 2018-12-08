@@ -2,9 +2,9 @@ $(document).ready(function() {
 
     var intervalId;
     var timer = {
-        time: 5,
+        time: 30,
         reset: function() {
-            timer.time = 5;
+            timer.time = 30;
         },
         start: function () {
             intervalId = setInterval(timer.count, 1000);
@@ -61,7 +61,7 @@ $(document).ready(function() {
             gif: "assets/images/3.gif"
         },
         {
-            q: "How do you play the Bolero of Fire? ",
+            q: "How do you play the Bolero of Fire?",
             a1: "↓ A ↓ A → ↓ → ↓",
             a2: "↓ A ↓ A ← A ← A",
             a3: "↓ A ↓ A ↑ → ↑ →",
@@ -88,21 +88,21 @@ $(document).ready(function() {
             gif: "assets/images/6.gif"
         },
         {
-            q: "",
-            a1: "",
-            a2: "",
-            a3: "",
-            a4: "",
-            answer: "",
+            q: "In Ocarina of Time, what melody does Link play to Darunia to cheer him up?",
+            a1: "Zelda's Lullaby",
+            a2: "Saria's Song",
+            a3: "Sun's Song",
+            a4: "Song of Time",
+            answer: "Saria's Song",
             gif: "assets/images/7.gif"
         },
         {
-            q: "",
-            a1: "",
-            a2: "",
-            a3: "",
-            a4: "",
-            answer: "",
+            q: "In A Link to the Past, what item can link use to travel back to the Light World from the Dark World?",
+            a1: "Magic Mirror",
+            a2: "Magic Missile",
+            a3: "Magic Maze",
+            a4: "Magic Metal",
+            answer: "Magic Mirror",
             gif: "assets/images/8.gif"
         },
         {
@@ -162,8 +162,8 @@ $(document).ready(function() {
                 correct = 0;
                 incorrect = 0;
                 missed = 0;
-                displayQuestion();
                 $("#timer-display").show();
+                displayQuestion();
             });
         }
         else {
@@ -193,4 +193,3 @@ $(document).ready(function() {
     displayQuestion();
 
 });
-

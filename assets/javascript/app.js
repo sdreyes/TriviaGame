@@ -22,7 +22,7 @@ $(document).ready(function() {
                 timer.stop();
                 missed++;
                 $(".answer-button").hide();
-                $("#question").html("Time's up! The correct answer was " + questions[index].answer + ".<br /><br /><img src='" + questions[index].gif + "'>");
+                $("#question").html("<h2>Time's up!</h2><h4>The correct answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
                 var next = setTimeout(questionEnd, 5000);
             };
         }
@@ -179,13 +179,13 @@ $(document).ready(function() {
         if (userGuess === questions[index].answer) {
             correct++;
             $(".answer-button").hide();
-            $("#question").html("Correct!<br />The answer was " + questions[index].answer + ".<br /><br /><img src='" + questions[index].gif + "'>");
+            $("#question").html("<h2>Correct!</h2><h4>The answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
             var next = setTimeout(questionEnd, 5000);
         }
         else {
             incorrect++;
             $(".answer-button").hide();
-            $("#question").html("Incorrect!<br />The correct answer was " + questions[index].answer + ".<br /><br /><img src='" + questions[index].gif + "'>");
+            $("#question").html("<h2>Incorrect!</2><h4>The correct answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
             var next = setTimeout(questionEnd, 5000);
         }
     })

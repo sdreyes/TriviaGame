@@ -1,16 +1,31 @@
 html, body {
-    background-image: url("../images/zelda-bg.jpg");
-    background-repeat: repeat;
     height: 100%;
+    font-family: 'Alike', serif;
+}
+
+body {
+    background-image: url("../images/zelda-background.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.answer-button {
+    width: 100%;
+    height: 3em;
+    background-color: white;
+    align-content: center;
+    font-size: 1.2em;
+}
+
+@font-face {
+    font-family: triforceFont;
+    src: url("Triforce.ttf");
 }
 
 h1 {
-    width: 100%;
-}
-
-button {
-    width: 50%;
-    height: 3em;
+    font-family: triforceFont;
+    font-weight: bold;
 }
 
 .container-table {
@@ -22,8 +37,29 @@ button {
     display: table-cell;
     vertical-align: middle;
     width: 100%;
+    height: 100%;
 }
 
 .col {
-    height: 90%;
+    height: 80%;
+}
+
+.button-div {
+    width: 100%;
+}
+
+#wrapper {
+    background-image: url("../images/zelda-div-background.png");
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+#game, #content {
+    background: none;
+    width: 100%;
+}
+
+#content {
+    width: 80%;
 }

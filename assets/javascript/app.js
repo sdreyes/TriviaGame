@@ -22,7 +22,7 @@ $(document).ready(function() {
                 timer.stop();
                 missed++;
                 $(".answer-button").hide();
-                $("#question").html("<h2>Time's up!</h2><h4>The correct answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
+                $("#question").html("<h2 class='missed'>Time's up!</h2><h4>The correct answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
                 var next = setTimeout(questionEnd, 5000);
             };
         }
@@ -52,7 +52,7 @@ $(document).ready(function() {
             gif: "assets/images/2.gif"
         },
         {
-            q: "What is not a part of the Triforce?",
+            q: "What is not a piece of the Triforce?",
             a1: "Wisdom",
             a2: "Courage",
             a3: "Strength",
@@ -97,21 +97,21 @@ $(document).ready(function() {
             gif: "assets/images/7.gif"
         },
         {
-            q: "In A Link to the Past, what item can link use to travel back to the Light World from the Dark World?",
-            a1: "Magic Mirror",
-            a2: "Magic Missile",
-            a3: "Magic Maze",
-            a4: "Magic Metal",
-            answer: "Magic Mirror",
+            q: "In A Link to the Past, what animal does Link turn into when he enters the Dark World?",
+            a1: "Rabbit",
+            a2: "Dog",
+            a3: "Frog",
+            a4: "Raven",
+            answer: "Rabbit",
             gif: "assets/images/8.gif"
         },
         {
-            q: "",
-            a1: "",
-            a2: "",
-            a3: "",
-            a4: "",
-            answer: "",
+            q: "In Majora's Mask, How many Cucco chicks does Grog have in Romani Ranch?",
+            a1: "6",
+            a2: "8",
+            a3: "10",
+            a4: "12",
+            answer: "10",
             gif: "assets/images/9.gif"
         },
         {
@@ -172,24 +172,30 @@ $(document).ready(function() {
         };
     };
 
-    $(".answer-button").on("click", function () {
-        var userGuess = ($(this).attr("data-text"));
-        timer.stop();
-        console.log(userGuess);
-        if (userGuess === questions[index].answer) {
-            correct++;
-            $(".answer-button").hide();
-            $("#question").html("<h2>Correct!</h2><h4>The answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
-            var next = setTimeout(questionEnd, 5000);
-        }
-        else {
-            incorrect++;
-            $(".answer-button").hide();
-            $("#question").html("<h2>Incorrect!</2><h4>The correct answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
-            var next = setTimeout(questionEnd, 5000);
-        }
-    })
+    $("#content").hide()
 
-    displayQuestion();
+    $("#start-game").on("click", function() {
+        $("#start-game").remove();
+        $("#content").show();
 
+        $(".answer-button").on("click", function () {
+            var userGuess = ($(this).attr("data-text"));
+            timer.stop();
+            console.log(userGuess);
+            if (userGuess === questions[index].answer) {
+                correct++;
+                $(".answer-button").hide();
+                $("#question").html("<h2 class='correct'>Correct!</h2><h4>The answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
+                var next = setTimeout(questionEnd, 5000);
+            }
+            else {
+                incorrect++;
+                $(".answer-button").hide();
+                $("#question").html("<h2 class='incorrect'>Incorrect!</2><h4>The correct answer was " + questions[index].answer + ".</h4><img src='" + questions[index].gif + "'>");
+                var next = setTimeout(questionEnd, 5000);
+            }
+        })
+
+        displayQuestion();
+    });
 });

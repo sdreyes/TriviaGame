@@ -2,9 +2,9 @@ $(document).ready(function() {
 
     var intervalId;
     var timer = {
-        time: 20,
+        time: 5,
         reset: function() {
-            timer.time = 20;
+            timer.time = 5;
         },
         start: function () {
             intervalId = setInterval(timer.count, 1000);
@@ -50,6 +50,78 @@ $(document).ready(function() {
             a4: "Don Gero's Mask",
             answer: "Kamaro's Mask",
             gif: "assets/images/2.gif"
+        },
+        {
+            q: "What is not a part of the Triforce?",
+            a1: "Wisdom",
+            a2: "Courage",
+            a3: "Strength",
+            a4: "Power",
+            answer: "Strength",
+            gif: "assets/images/3.gif"
+        },
+        {
+            q: "How do you play the Bolero of Fire? ",
+            a1: "↓ A ↓ A → ↓ → ↓",
+            a2: "↓ A ↓ A ← A ← A",
+            a3: "↓ A ↓ A ↑ → ↑ →",
+            a4: "→ A → A ↑ ↓ ↑ ↓",
+            answer: "↓ A ↓ A → ↓ → ↓",
+            gif: "assets/images/4.gif"
+        },
+        {
+            q: "In Breath of the Wild, which of these is not a color of Bokoblin?",
+            a1: "Blue",
+            a2: "Black",
+            a3: "Red",
+            a4: "Green",
+            answer: "Green",
+            gif: "assets/images/5.gif"
+        },
+        {
+            q: "In Ocarina of Time, what is the proper order to defeat the deku scrub bothers in the Deku Tree?",
+            a1: "3, 2, 1",
+            a2: "1, 2, 3",
+            a3: "2, 3, 1",
+            a4: "1, 3, 2",
+            answer: "2, 3, 1",
+            gif: "assets/images/6.gif"
+        },
+        {
+            q: "",
+            a1: "",
+            a2: "",
+            a3: "",
+            a4: "",
+            answer: "",
+            gif: "assets/images/7.gif"
+        },
+        {
+            q: "",
+            a1: "",
+            a2: "",
+            a3: "",
+            a4: "",
+            answer: "",
+            gif: "assets/images/8.gif"
+        },
+        {
+            q: "",
+            a1: "",
+            a2: "",
+            a3: "",
+            a4: "",
+            answer: "",
+            gif: "assets/images/9.gif"
+        },
+        {
+            q: "",
+            a1: "",
+            a2: "",
+            a3: "",
+            a4: "",
+            answer: "",
+            gif: "assets/images/10.gif"
         }
     ];
 

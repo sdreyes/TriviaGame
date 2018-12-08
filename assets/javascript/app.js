@@ -115,12 +115,12 @@ $(document).ready(function() {
             gif: "assets/images/9.gif"
         },
         {
-            q: "",
-            a1: "",
-            a2: "",
-            a3: "",
-            a4: "",
-            answer: "",
+            q: "In Wind Waker, what do Rose and Abe ask Link to collect for them?",
+            a1: "Pigs",
+            a2: "Cuccos",
+            a3: "Dogs",
+            a4: "Lizards",
+            answer: "Pigs",
             gif: "assets/images/10.gif"
         }
     ];

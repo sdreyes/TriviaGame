@@ -172,6 +172,7 @@ $(document).ready(function() {
         };
     };
 
+    //Hide content when the page loads so that only the "Start-Game" button is available to the user
     $("#content").hide()
 
     $("#start-game").on("click", function() {

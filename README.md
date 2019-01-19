@@ -2,6 +2,8 @@
 
 A trivia game with a Zelda theme!
 
+Deployed: https://sdreyes.github.io/TriviaGame/
+
 Click "Start Game" to begin playing, and choose answers to the questions within the 30 second limit. After each question, it will let you know whether or not your answer was correct and a gif is displayed for 5 seconds before moving onto the next question. After all the questions are answered, your results will display on the screen and you will be offered a button to play the game again.
 
 This is a project showing my skills in JQuery, HTML, and CSS.
